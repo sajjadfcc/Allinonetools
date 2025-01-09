@@ -144,109 +144,92 @@
 <body>
 
 <header>
-    <!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Countdown Timer</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f9;
-      color: #333;
-      text-align: center;
-      margin: 0;
-      padding: 0;
-    }
+<title>Auto-Start Responsive Timer</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body {
+  font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  /* Removed background color from body */
+}
 
-    .container {
-      margin-top: 100px;
-    }
+#timer-container {
+  /* Removed background, padding, border, and shadow */
+  text-align: center;
+  width: 90%;
+  max-width: 400px;
+}
 
-    .timer {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      font-size: 2em;
-      font-weight: bold;
-    }
+#display {
+  font-size: 3em;
+  margin-bottom: 0px; /* Reduced margin */
+}
 
-    .time-box {
-      background: #333;
-      color: #fff;
-      padding: 20px 30px;
-      border-radius: 10px;
-      text-align: center;
-    }
+/* Removed button styles */
 
-    .time-box span {
-      display: block;
-      font-size: 1.2em;
-      color: #f4f4f9;
-    }
-
-    footer {
-      margin-top: 50px;
-      font-size: 0.8em;
-      color: #666;
-    }
-  </style>
+@media (max-width: 400px) {
+  #display {
+    font-size: 2em;
+  }
+}
+</style>
 </head>
 <body>
-  <div class="container">
-  
-    <div class="timer">
-      <div class="time-box">
-        <div id="days">00</div>
-        <span>Days</span>
-      </div>
-      <div class="time-box">
-        <div id="hours">00</div>
-        <span>Hours</span>
-      </div>
-      <div class="time-box">
-        <div id="minutes">00</div>
-        <span>Minutes</span>
-      </div>
-      <div class="time-box">
-        <div id="seconds">00</div>
-        <span>Seconds</span>
-      </div>
-    </div>
+
+<div id="timer-container">
+  <div id="display">00:00:00</div>
   </div>
- 
 
-  <script>
-    // Set the target date and time
-    const targetDate = new Date("2025-12-31T23:59:59");
+<script>
+const display = document.getElementById('display');
 
-    // Function to update the countdown
-    function updateCountdown() {
-      const now = new Date();
-      const timeRemaining = targetDate - now;
+let startTime = 0;
+let elapsedTime = 0;
+let timerInterval;
 
-      if (timeRemaining > 0) {
-        const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+function formatTime(milliseconds) {
+  let seconds = Math.floor((milliseconds / 1000) % 60);
+  let minutes = Math.floor((milliseconds / (1000 * 60)) % 60);
+  let hours = Math.floor((milliseconds / (1000 * 60 * 60)) % 24);
 
-        // Update the HTML elements
-        document.getElementById("days").textContent = String(days).padStart(2, "0");
-        document.getElementById("hours").textContent = String(hours).padStart(2, "0");
-        document.getElementById("minutes").textContent = String(minutes).padStart(2, "0");
-        document.getElementById("seconds").textContent = String(seconds).padStart(2, "0");
-      } else {
-        document.querySelector(".timer").innerHTML = "<h2>Time's up!</h2>";
-        clearInterval(timerInterval);
-      }
-    }
+  seconds = (seconds < 10) ? "0" + seconds : seconds;
+  minutes = (minutes < 10) ? "0" + minutes : minutes;
+  hours = (hours < 10) ? "0" + hours : hours;
 
-    // Run the countdown every second
-    const timerInterval = setInterval(updateCountdown, 1000);
-    updateCountdown(); // Call once immediately
-  </script>
+  return hours + ":" + minutes + ":" + seconds;
+}
+
+function startTimer() {
+  startTime = Date.now() - elapsedTime;
+  timerInterval = setInterval(() => {
+    elapsedTime = Date.now() - startTime;
+    display.textContent = formatTime(elapsedTime);
+  }, 10);
+}
+
+
+function resetTimer() {
+  clearInterval(timerInterval);
+  elapsedTime = 0;
+  display.textContent = "00:00:00";
+  startTimer(); //Restart the timer after reset
+}
+
+// Auto Start:
+startTimer();
+
+//Added touch event to reset timer on tap
+document.getElementById('display').addEventListener('touchstart', resetTimer);
+
+</script>
+
 </body>
 </html>
 
