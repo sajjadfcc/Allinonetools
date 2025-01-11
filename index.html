@@ -1,438 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Allinonetools</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gmail Dot Maker</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
 
-        header {
-            background-color: #4CAF50;
-            color: white;
-            padding: 15px 20px;
-            text-align: center;
-        }
+    .container {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 600px;
+    }
 
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: #333;
-            padding: 10px;
-        }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
 
-        .nav-links {
-            display: flex;
-        }
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
 
-        nav a {
-            color: white;
-            padding: 14px 20px;
-            text-decoration: none;
-            text-align: center;
-        }
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
 
-        nav a:hover {
-            background-color: #ddd;
-            color: black;
-        }
+    button {
+      background-color: #007BFF;
+      color: #fff;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-right: 10px;
+    }
 
-        .menu-icon {
-            display: none;
-            cursor: pointer;
-            font-size: 24px;
-            color: white;
-        }
+    button:hover {
+      background-color: #0056b3;
+    }
 
-        .content {
-            padding: 20px;
-            max-width: 800px;
-            margin: auto;
-            background: white;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
+    .output {
+      margin-top: 20px;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      background: #f9f9f9;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      max-height: 300px;
+      overflow-y: auto;
+    }
 
-        footer {
-            text-align: center;
-            padding: 10px 0;
-            background-color: #333;
-            color: white;
-            position: relative;
-            bottom: 0;
-            width: 100%;
-        }
+    .actions {
+      margin-top: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-        .hidden {
-            display: none;
-        }
-
-        .button {
-            display: inline-block;
-            padding: 10px 20px;
-            margin-top: 20px;
-            background-color: #4CAF50;
-            color: white;
-            text-align: center;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-
-        .button:hover {
-            background-color: #45a049;
-        }
-
-        /* Responsive Styles */
-        @media (max-width: 600px) {
-            .nav-links {
-                display: none;
-                flex-direction: column;
-                width: 100%;
-                position: absolute;
-                top: 60px; /* Below the header */
-                left: 0;
-                background-color: #333;
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .menu-icon {
-                display: block;
-            }
-
-            nav a {
-                padding: 10px;
-                text-align: left;
-            }
-        }
-
-        /* Contact Form Styles */
-        .contact-form {
-            margin-top: 20px;
-        }
-
-        input[type="text"], input[type="email"], textarea {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-
-        .message {
-            text-align: center;
-            margin-top: 20px;
-            color: green;
-        }
-
-        .error {
-            text-align: center;
-            margin-top: 20px;
-            color: red;
-        }
-    </style>
-
-
-	
+    .total {
+      font-weight: bold;
+      color: #555;
+    }
+  </style>
 </head>
 <body>
-
-				      
-<nav>
-    <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
-    <div class="nav-links" id="navLinks">
-        <a href="#home" onclick="showSection('home')">Home</a>
-        <a href="#tiktok" onclick="showSection('tiktok')">TikTok tools</a>
-        <a href="#facebook" onclick="showSection('facebook')">Hacks</a>
-		<a href="#Course" onclick="showSection('Course')">course</a>
-		<a href="#Whatsapp Unban" onclick="showSection('Whatsapp Unban')">whatsapp unban</a>
-        <a href="#contact" onclick="showSection('contact')">Contact Us</a>
-        <a href="#about" onclick="showSection('about')">About Us</a>
-		
-    </div>
-</nav>
-
-<div class="content">
-    <div id="home" class="section">
-        <h2>Welcome to sajjad tools </h2>
-        <p></p>
-		
-		 <a href="https://www.whatismyipaddress.com/" class="button" target="_blank">IP Address Finder</a>
-		<a href="https://www.wix.com/lp-en/sl/website-builder1?utm_source=google&utm_medium=cpc&utm_campaign=18947331524^143840164499^search%20-%20en&experiment_id=website%20builder%20free^e^635573263901^&gad_source=1&gclid=CjwKCAiA1eO7BhATEiwAm0Ee-EpmXsQhaWqWNgF_vuP6XkhACoMc4empP0vj9HdVAyui1koVmuiQuRoCBZ4QAvD_BwE" class="button" target="_blank">Make Your Own Website</a>
-		
-		<a href="https://www.link-locker.com/" class="button" target="_blank">Website Link Locker</a>
-        <a href="https://ssstik.io/" class="button" target="_blank">TikTok Video Without Downloader</a>
-        <a href="https://www.pdffiller.com/en/functionality/online-pdf-writer-for-a-company?gad_source=1&gclid=Cj0KCQiAst67BhCEARIsAKKdWOl6LznDtJdokYdl7w5Mj2EmhKVZRG4j_Xt30R7TYJ--I0S9xBmCYUYaAr4AEALw_wcB" class="button" target="_blank">PDF Editor</a>
-        <a href="https://notevibes.com/#voices" class="button" target="_blank">Text-to-Speech Voices</a>
-        <a href="https://deepai.org/machine-learning-model/text2img" class="button" target="_blank">Image Generator</a>
-        <a href="https://invideo.io/" class="button" target="_blank">Video Generator</a>
-       <a href="https://murf.ai/" class="button" target="_blank">Voice Cloner</a>
-<a href="https://randomuser.me/" class="button" target="_blank">RANDOM USER GENERATOR </a>
-        <a href="https://resumegenius.com/" class="button" target="_blank">CV Generator</a>
-        <a href="https://www.copy.ai/" class="button" target="_blank">AI Chat Tool</a>
-        <a href="https://huggingface.co/" class="button" target="_blank">All-in-One AI Tool</a>
-        <a href="https://musasimdatabase.infy.uk/?fbclid=IwY2xjawG5NwRleHRuA2FlbQIxMAABHYZM9rndIfpvXzs37_fG_33c6EPglf3SqNaNqeIywMYe_rJS1n84XllcKg_aem_86YwnegYOI_u_bbzgX0tDA&i=2" class="button" target="_blank">Oldsiminfo</a>
-        <a href="https://tajammaltm.com/" class="button" target="_blank">Newsiminfo</a>				   
-<a href="https://onlinesim.io/auth/register?redirect=/v2/numbers/" class="button" target="_blank">Free usa sim</a>	
-<a href="https://iosmirror.cc/home" class="button" target="_blank">Free movies downlodeand wach</a>	
-<a href="https://facecheck.id/#tyrHdBdJN14" class="button" target="_blank">Facecheek id</a>	
-<a href="https://play.google.com/store/apps/details?id=com.vyom.gallery&hl=en" class="button" target="_blank">3D Gallary</a>	
-	    
-    </div>
-
-    <div id="tiktok" class="section hidden">
-        <h2>TikTok Links</h2>
-        <p>Explore our collection of TikTok tools and resources.</p>
-        <a href="https://zefoy.com/" class="button" target="_blank">Free Likes</a>
-		<a href="https://countik.com/" class="button" target="_blank">TikTOk video counter</a>
-		
-    </div>
-
-    <div id="facebook" class="section hidden">
-        <h2> Hacks</h2>
-        <p>Discover tips and hacks.</p>
-<h2>If you download 1 app note this</h2>
-<P>sept1:- 𝖣ᴏᴡɴʟᴏᴀᴅ 𝖨ᴛ, 𝖡ᴜᴛ 𝖣ᴏ 𝖭ᴏᴛ 𝖨ɴsᴛᴀʟʟ 𝖨ᴛ 𝖮ɴ 𝖸ᴏᴜʀ </P>
-<P> sept2:-𝖢ʜᴀɴɢᴇ 𝖳ʜᴇ 𝖭ᴀᴍᴇ 𝖮ғ 𝖳ʜᴇ 𝖥ɪʟᴇs 𝖮ɴʟʏ<br>
-step3:- 𝖲ᴇɴᴅ ᴀ 𝖬ᴇssᴀɢᴇ 𝖳ᴏ 𝖧ɪs 𝖵ɪᴄᴛɪᴍ 𝖳ᴏ 𝖳ᴜʀɴ 𝖮ғғ 𝖧ɪs 𝖯ʜᴏɴᴇ<BR>
-step4:-𝖨ᴛ 𝖨s 𝖴sᴇғᴜʟ 𝖥ᴏʀ 𝖳ʜᴏsᴇ 𝖶ʜᴏ 𝖡ʟᴀᴄᴋᴍᴀɪʟ 𝖦ɪʀʟs,𝖤ᴛᴄ.....x<br>
-step5:-𝖧ᴇ 𝖨s 𝖮ᴘᴇɴ 𝖠ɴᴅ 𝖥ᴏʀᴄᴇᴅ 𝖳ᴏ 𝖱ᴏᴏᴛ 𝖧ɪs 𝖣ᴇᴠɪᴄᴇ <BR>
-step6:- 𝖧ᴇ 𝖨s 𝖮ᴘᴇɴ 𝖠ɴᴅ 𝖥ᴏʀᴄᴇᴅ 𝖳ᴏ 𝖱ᴏᴏᴛ 𝖧ɪs 𝖣ᴇᴠɪᴄ<BR>
-step7:-𝖢ᴀɴ 𝖸ᴏᴜ 𝖬ᴏᴅɪғʏ ᴀ 𝖯ʀᴏɢʀᴀᴍ, ɪ 𝖠ᴅᴠɪsᴇ 𝖸ᴏᴜ<BR>
-𝗜𝘁𝘀 𝗮𝗱𝘃𝗮𝗻𝘁𝗮𝗴𝗲𝘀 <BR>
-step8:-𝖧ᴇ 𝖫ᴏᴄᴋ 𝖧ɪs 𝖵ɪᴄᴛɪᴍ's 𝖣ᴇᴠɪᴄᴇ ᴀ 𝖢ᴏᴅᴇ<BR> 
-step9:-➩ 𝖳ʜɪs 𝖢ᴏᴅᴇ 𝖨s 𝖠ᴠᴀɪʟᴀʙʟᴇ 𝖳ᴏ 𝖸ᴏᴜ 𝖮ɴʟʏ<BR> 
-step:-10 ➩ 𝖶ʜᴇɴᴇᴠᴇʀ 𝖸ᴏᴜ 𝖳ᴀᴋᴇ 𝖸ᴏᴜʀ 𝖬ᴏɴᴇʏ 𝖮ʀ 𝖢ʀᴇᴅɪᴛ<BR>
-step:-11➩ 𝖨ᴛ 𝖨s 𝖠ʟᴍᴏsᴛ 𝖨ᴍᴘᴏssɪʙʟᴇ 𝖳ᴏ 𝖮ᴘᴇɴ 𝖨ᴛ <BR>
-step:-12 ➩ 𝖳ʜᴇ 𝖲ʏᴍʙᴏʟ 𝖨s 𝖴ᴘ 𝖳ᴏ 𝖸ᴏᴜ 𝖳ᴏ 𝖪ɴᴏᴡ 𝖠ʟᴏɴᴇ <BR>
-If you want to now ths passwoard contacte me (03446288955)<BR><BR>	
-<P><a href="haha.apk" class="button" target="_blank">Download 1 </a></P>
-
-		<a href="https://facebook.com/help/" class="button" target="_blank">Facebook Help Center</a>
-        <a href="https://sp0m.co/en/private/index" class="button" target="_blank">All Hacking Tool</a>
-        <a href="https://z-lolz.net/" class="button" target="_blank">All Hacks</a>
-		<a href="https://iplogger.org/" class="button" target="_blank">loction tracker"</a>
-		<a href="sajjad.mp4" class="button" target="_blank">Facebook recover Trick</a>
-		 <a href="https://t.me/IslandMods" class="button" target="_blank">All premium app free</a>
-	<a href="haha.apk" class="button" target="_blank">Download 1 </a>
-	    
-	    <a href="https://drive.google.com/drive/folders/1vWAaWb_57aiJJqNjFOF3dNVc2EC3EreJ" class="button" target="_blank">Free USA number</a>
-    </div>
-	 <div id="Course" class="section hidden">
-        <h2> Course</h2>
-	  <p>Discover  All Premium Course Free.</p>	
-	  <a href="sajjd2.pdf" class="button" target="_blank">Free course</a>
-		<a href="https://drive.google.com/drive/folders/1U1S2nNWFmm1OJ54yCFG_M78esXS6MBD-" class="button" target="_blank">Best Dropshipping course </a>						  
-			<a href="https://mega.nz/folder/NtMQGRaY#qb1LeVDFlw26Fw9oFVDbEQ" class="button" target="_blank">Facebook instream ads* *course 100%</a>	
-<a href="https://mega.nz/folder/vxUznQ7D#Bv5EVMFKsd-ZIqfypCQEXA" class="button" target="_blank">```Xtream Commerce Urdu</a>	
-<a href="https://mega.nz/folder/fsN3WQbL#gO6oe3z2h1DFMjLbz4B82g" class="button" target="_blank">Shopify dropshipping</a>	
-<a href="https://mega.nz/folder/bp1WDKYD#DEy_7EgbtfDh-udLoQtD_g" class="button" target="_blank">wordpress</a>	
-<a href="https://mega.nz/folder/uwUhCCRR#Yet-bWYTCToIfhkgCum_8w" class="button" target="_blank">SEO</a>	
-<a href="https://mega.nz/folder/qo822SwT#xuWlsw7MHBNAjtmb5AF7XQ" class="button" target="_blank">video editing</a>	
-<a href="https://mega.nz/folder/Tld1DSKb#PLZ5wnX0yoDjo04dX7afsg" class="button" target="_blank">ios app development</a>	
-<a href="https://mega.nz/folder/bo123ATb#6L16Tbc3z47O4KhsIXKkTQ" class="button" target="_blank">google ads</a>	
-<a href="https://mega.nz/folder/jxMjSSpI#hCByLH9Q56fBkzWfc8m0dw" class="button" target="_blank">email marketing</a>	
-<a href="https://mega.nz/folder/WkMDxaRS#dOg35M0SSu530E6NpfTBoA" class="button" target="_blank">daraz sellers</a>
-<a href="https://mega.nz/folder/zp1yyCqa#Me2EY_K3A2YPWShQ1QO4mg" class="button" target="_blank">content writing</a>
-<a href="https://mega.nz/folder/q1FHUaQa#yMN2iefEwc-F4bUEBPLkOQ" class="button" target="_blank">android app development</a>
- <a href="https://drive.google.com/drive/folders/1DMAyUAmBylkE4ZemMbcHJYzNoD0WPgJD" class="button" target="_blank">facebook ads</a>
-<a href="https://mega.nz/folder/ThcHSQiA#sg3hEaulJWAIzGbq39Vjlw" class="button" target="_blank">amazon affiliate marketing</a>
- <a href="https://mega.nz/folder/j9si0TLZ#4Z_PVRs_lp-F6t9aCHp__w" class="button" target="_blank">Ebay</a>
-<a href="https://mega.nz/folder/S4kiVCBZ#7M5uPKD-KdGt0mghEIFWWw" class="button" target="_blank">instagram marketing
-</a>
-<a href="https://mega.nz/folder/C4VkAZ6R#U5xoymtNJv0uAoC0x72yLQ" class="button" target="_blank">youtube marketing</a>
-<a href="https://mega.nz/folder/CwElWCba#T4kYRmEXTBE3_8NbO_OBcw" class="button" target="_blank">Graphic Designing Course</a>
-<a href="https://mega.nz/folder/q1M1VSaL#gUQh3V-6FPK6EzVAfX4F7Q" class="button" target="_blank">3d animation</a>
-
-<a href="https://drive.google.com/drive/folders/1Mw_gRWJSlpPMUFlwoHR5xndnrkgSuep8" class="button" target="_blank">Make Your PC And Leptop Look Better* totally change 😍❤️🤝✅ Complete Method 😍</a>
-<a href="https://drive.google.com/drive/folders/1FMzdZMbVUZbsZMnedbzClt5OxW0R3zOW" class="button" target="_blank">	SEO Complete Course* SEO kia hoti hy or kesy krni chaiye complete ✅</a>			
-</div>
-<div class="Whatsapp Unban">
-    <div id="Whatsapp Unban" class="section">
-        <h2>Welcome to Whatsapp Unban </h2>
- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WhatsApp Unban Request</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-
-        .container {
-            max-width: 400px;
-            margin: 50px auto;
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        h1 {
-            text-align: center;
-            color: #4CAF50;
-        }
-
-        form {
-            margin-top: 20px;
-        }
-
-        label {
-            font-weight: bold;
-            margin-bottom: 5px;
-            display: block;
-        }
-
-        input[type="text"] {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-
-        button {
-            display: block;
-            width: 100%;
-            padding: 10px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #45a049;
-        }
-    </style>
-</head>
-<body>
-
-<div class="container">
-    <h1>WhatsApp Unban Request</h1>
-    <form id="unbanForm">
-        <label for="phoneNumber">Phone Number (with+9230000000):</label>
-        <input type="text" id="phoneNumber" placeholder="9230000000" required>
-        <button type="button" id="sendEmail">Send Unban Request</button>
+  <div class="container">
+    <h1>This tool created by sajjad </h1>
+    <form id="gmail-form">
+      <label for="email">Enter Gmail (without @gmail.com):</label>
+      <input type="text" id="email" placeholder="example">
+      <button type="button" onclick="generateGmailDots()">Generate</button>
     </form>
-</div>
+    <div class="output" id="output"></div>
+    <div class="actions">
+      <button id="copy-button" onclick="copyToClipboard()" disabled>Copy to Clipboard</button>
+      <span class="total" id="total-count"></span>
+    </div>
+  </div>
 
-<script>
-    document.getElementById("sendEmail").addEventListener("click", function () {
-        const phoneNumber = document.getElementById("phoneNumber").value.trim();
+  <script>
+    function generateGmailDots() {
+      const email = document.getElementById('email').value.trim();
+      const output = document.getElementById('output');
+      const totalCount = document.getElementById('total-count');
+      const copyButton = document.getElementById('copy-button');
 
-        // Validate the phone number
-        if (!phoneNumber) {
-            alert("Please enter your phone number!");
-            return;
+      if (!email) {
+        output.textContent = 'Please enter a Gmail username.';
+        totalCount.textContent = '';
+        copyButton.disabled = true;
+        return;
+      }
+
+      const combinations = getDotCombinations(email);
+      output.textContent = combinations.map(c => `${c}@gmail.com`).join('\n');
+      totalCount.textContent = `Total Combinations: ${combinations.length}`;
+      copyButton.disabled = false;
+    }
+
+    function getDotCombinations(email) {
+      const results = [];
+      const parts = email.split('');
+
+      const addDots = (current, index) => {
+        if (index === parts.length) {
+          results.push(current.join(''));
+          return;
         }
 
-        // Email configuration
-        const supportEmail = "support@whatsapp.com";
-        const subject = "Request to Unban My WhatsApp Account";
-        const body = `
-Dear WhatsApp Support Team,
+        // Add current character without a dot
+        current.push(parts[index]);
+        addDots(current, index + 1);
+        current.pop();
 
-My WhatsApp account has been banned, and I believe this may have been a mistake.I use WhatsApp for personal communication and strictly adhere to its Terms of Service. Please review my account.
+        // Add current character with a dot (if not at the end)
+        if (index !== parts.length - 1) {
+          current.push(parts[index], '.');
+          addDots(current, index + 1);
+          current.pop();
+          current.pop();
+        }
+      };
 
-Details:
-Phone Number: ${phoneNumber}
+      addDots([], 0);
+      return results;
+    }
 
-Thank you for your assistance.
+    function copyToClipboard() {
+      const output = document.getElementById('output');
+      const textToCopy = output.textContent;
 
-Best regards,
-[Your Name]
-        `;
-
-        // Redirect to Gmail with pre-filled details
-        const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(supportEmail)}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-        window.open(gmailLink, "_blank");
-    });
-</script>
-</body>
-</html>	
-	  </div>
-    <div  action="https://formspree.io/f/xnnnozwb"
-  method="POST"
-	id="contact" class="section hidden">
-        <h2>Contact Us</h2>
-        <p>If you have any questions, feel free to reach out!</p>
-        <form id="contactForm" class="contact-form">
-            <input type="text" id="name" placeholder="Your Name" required>
-            <input type="email" id="email" placeholder="Your Email" required>
-            <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
-            <button type="submit">Send Message</button>
-        </form>
-        <div id="responseMessage" class="message"></div>
-        <div id="errorMessage" class="error"></div>
-    </div>
-
-    <div id="about" class="section hidden">
-        <h2>About Us</h2>
-        <p>This is my frist website and a have many mastak but website creating is my dream .
-		thanks .</p>
-    </div>
-</div>
-
-  
-
-<script>
-    function showSection(sectionId) {
-        const sections = document.querySelectorAll('.section');
-        sections.forEach(section => {
-            section.classList.add('hidden');
+      if (textToCopy) {
+        navigator.clipboard.writeText(textToCopy).then(() => {
+          alert('Email combinations copied to clipboard!');
+        }).catch(err => {
+          alert('Failed to copy text. Please try again.');
         });
-        document.getElementById(sectionId).classList.remove('hidden');
+      }
     }
-
-    function toggleMenu() {
-        const navLinks = document.getElementById('navLinks');
-        navLinks.classList.toggle('active');
-    }
-
-    document.getElementById('contactForm').addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent the default form submission
-
-        // Get form data
-        var name = document.getElementById('name').value.trim();
-        var email = document.getElementById('email').value.trim();
-        var message = document.getElementById('message').value.trim();
-        var responseMessage = document.getElementById('responseMessage');
-        var errorMessage = document.getElementById('errorMessage');
-
-        // Reset messages
-        responseMessage.textContent = '';
-        errorMessage.textContent = '';
-
-        // Simple validation
-        if (name === '' || email === '' || message === '') {
-            errorMessage.textContent = 'All fields are required!';
-            return;
-        }
-
-        // For demonstration, just show a success message
-        responseMessage.textContent = 'Your message has been sent successfully!';
-
-        // Clear form fields
-        document.getElementById('contactForm').reset();
-    });
-</script>
-
+  </script>
 </body>
 </html>
