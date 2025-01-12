@@ -10,22 +10,35 @@
       margin: 0;
       padding: 0;
       background-color: #f4f4f9;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
+    }
+
+    header, footer {
+      background-color: #007BFF;
+      color: #fff;
+      padding: 10px 20px;
+      text-align: center;
+    }
+
+    header nav a, footer a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    header nav a:hover, footer a:hover {
+      text-decoration: underline;
     }
 
     .container {
-      background: #fff;
+      max-width: 800px;
+      margin: 20px auto;
       padding: 20px;
+      background: #fff;
       border-radius: 8px;
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      width: 100%;
-      max-width: 600px;
     }
 
-    h1 {
+    h1, h2, h3 {
       text-align: center;
       color: #333;
     }
@@ -36,7 +49,7 @@
       font-weight: bold;
     }
 
-    input[type="text"] {
+    input[type="text"], textarea {
       width: 100%;
       padding: 10px;
       margin-bottom: 20px;
@@ -58,8 +71,37 @@
       background-color: #0056b3;
     }
 
-    .output {
+    .social-buttons {
+      display: flex;
+      justify-content: center;
       margin-top: 20px;
+    }
+
+    .social-buttons a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 4px;
+    }
+
+    .social-buttons a.facebook {
+      background-color: #3b5998;
+    }
+
+    .social-buttons a.tiktok {
+      background-color: #010101;
+    }
+
+    .social-buttons a.whatsapp {
+      background-color: #25D366;
+    }
+
+    footer {
+      margin-top: 40px;
+    }
+
+    .output {
       white-space: pre-wrap;
       word-wrap: break-word;
       background: #f9f9f9;
@@ -69,34 +111,61 @@
       max-height: 300px;
       overflow-y: auto;
     }
-
-    .actions {
-      margin-top: 10px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .total {
-      font-weight: bold;
-      color: #555;
-    }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>This tool created by sajjad </h1>
+  <header>
+    <h1>Gmail Dot Maker Tool</h1>
+    <nav>
+      <a href="#tool">Tool</a>
+      <a href="#features">Features</a>
+      <a href="#feedback">Feedback</a>
+    </nav>
+  </header>
+
+  <div class="container" id="tool">
+    <h2>This tool is created by sajjad</h2>
     <form id="gmail-form">
-      <label for="email">Enter Gmail (without @gmail.com):</label>
+      <label for="email">Enter Gmail Username (without @gmail.com):</label>
       <input type="text" id="email" placeholder="example">
       <button type="button" onclick="generateGmailDots()">Generate</button>
     </form>
     <div class="output" id="output"></div>
     <div class="actions">
       <button id="copy-button" onclick="copyToClipboard()" disabled>Copy to Clipboard</button>
+      <button id="download-button" onclick="downloadResults()" disabled>Download Results</button>
       <span class="total" id="total-count"></span>
     </div>
   </div>
+
+  <div class="container" id="features">
+    <h2>Tool Features</h2>
+    <ul>
+      <li>Generate all possible Gmail dot combinations.</li>
+      <li>Copy the combinations to your clipboard.</li>
+      <li>Download the results as a text file.</li>
+      <li>Clean and user-friendly interface.</li>
+    </ul>
+  </div>
+
+  <div class="container" id="feedback">
+    <h2>Feedback</h2>
+    <form>
+      <label for="feedback-text">We value your feedback:</label>
+      <textarea id="feedback-text" rows="4" placeholder="Write your feedback here..."></textarea>
+      <button type="button" onclick="submitFeedback()">Submit Feedback</button>
+    </form>
+    <p id="feedback-response" style="color: green; display: none;">Thank you for your feedback!</p>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Gmail Dot Maker Tool | All Rights Reserved</p>
+    <div class="social-buttons">
+      <a href="https://web.facebook.com/profile.php?id=100077533067942" class="facebook" target="_blank">Facebook</a>
+      <a href="https://sajjadfcc.github.io/Allinonetools/#home" class="Website" target="_blank">Website</a>
+      <a href="https://wa.me/03446288955?text=How can i help you" class="whatsapp" target="_blank">WhatsApp</a>
+    </div>
+  </footer>
 
   <script>
     function generateGmailDots() {
@@ -104,11 +173,21 @@
       const output = document.getElementById('output');
       const totalCount = document.getElementById('total-count');
       const copyButton = document.getElementById('copy-button');
+      const downloadButton = document.getElementById('download-button');
 
       if (!email) {
         output.textContent = 'Please enter a Gmail username.';
         totalCount.textContent = '';
         copyButton.disabled = true;
+        downloadButton.disabled = true;
+        return;
+      }
+
+      if (/[^a-zA-Z0-9]/.test(email)) {
+        output.textContent = 'Invalid Gmail username. Only alphanumeric characters are allowed.';
+        totalCount.textContent = '';
+        copyButton.disabled = true;
+        downloadButton.disabled = true;
         return;
       }
 
@@ -116,6 +195,7 @@
       output.textContent = combinations.map(c => `${c}@gmail.com`).join('\n');
       totalCount.textContent = `Total Combinations: ${combinations.length}`;
       copyButton.disabled = false;
+      downloadButton.disabled = false;
     }
 
     function getDotCombinations(email) {
@@ -128,12 +208,10 @@
           return;
         }
 
-        // Add current character without a dot
         current.push(parts[index]);
         addDots(current, index + 1);
         current.pop();
 
-        // Add current character with a dot (if not at the end)
         if (index !== parts.length - 1) {
           current.push(parts[index], '.');
           addDots(current, index + 1);
@@ -156,6 +234,38 @@
         }).catch(err => {
           alert('Failed to copy text. Please try again.');
         });
+      }
+    }
+
+    function downloadResults() {
+      const output = document.getElementById('output').textContent;
+
+      if (!output) return;
+
+      const blob = new Blob([output], { type: 'text/plain' });
+      const url = URL.createObjectURL(blob);
+
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'gmail_combinations.txt';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+
+    function submitFeedback() {
+      const feedback = document.getElementById('feedback-text').value.trim();
+      const response = document.getElementById('feedback-response');
+
+      if (feedback) {
+        response.style.display = 'block';
+        setTimeout(() => {
+          response.style.display = 'none';
+        }, 3000);
+        document.getElementById('feedback-text').value = '';
+      } else {
+        alert('Please enter feedback before submitting.');
       }
     }
   </script>
